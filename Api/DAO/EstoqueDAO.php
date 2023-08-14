@@ -57,6 +57,7 @@ class EstoqueDAO extends DAO
         $stmt->bindValue(3, $model->preco);
         $stmt->bindValue(4, $model->quantidade);
         $stmt->bindValue(5, $model->codigo);
+        $stmt->bindValue(6, $model->id);
 
         $stmt->execute();      
     }

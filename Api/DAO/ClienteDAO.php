@@ -57,6 +57,7 @@ class ClienteDAO extends DAO
         $stmt->bindValue(3, $model->telefone);
         $stmt->bindValue(4, $model->sexo);
         $stmt->bindValue(5, $model->id_animais);
+        $stmt->bindValue(6, $model->id);
 
         $stmt->execute();      
     }

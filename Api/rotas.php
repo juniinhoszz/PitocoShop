@@ -43,6 +43,23 @@ switch($parse_uri) {
         EstoqueController::list();
     break;
 
+    // ANIMAIS
+
+    // http://localhost:8000//animais/form -- Formulário de Clientes
+    case "/animais/form":
+        AnimaisController::form();
+    break;
+
+    // http://localhost:8000//animais/save -- salvar
+    case "/animais/save":
+        AnimaisController::save();
+    break;
+
+    // http://localhost:8000//animais -- Listagem de Clientes
+    case "/animais":
+        AnimaisController::list();
+    break;
+
     default:
     //header("Location: /");
 break;
