@@ -2,7 +2,9 @@
 use Api\Controller\{
     ClienteController,
     AnimaisController,
+    CoresController,
     EstoqueController,
+    ServicoController
 };
 
 $parse_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -28,7 +30,7 @@ switch($parse_uri) {
 
     // ESTOQUE
 
-    // http://localhost:8000//estoque/form -- Formulário de Clientes
+    // http://localhost:8000//estoque/form -- Formulário de Produtos
     case "/estoque/form":
         EstoqueController::form();
     break;
@@ -38,14 +40,14 @@ switch($parse_uri) {
         EstoqueController::save();
     break;
 
-    // http://localhost:8000//estoque -- Listagem de Clientes
+    // http://localhost:8000//estoque -- Listagem de Produtos
     case "/estoque":
         EstoqueController::list();
     break;
 
     // ANIMAIS
 
-    // http://localhost:8000//animais/form -- Formulário de Clientes
+    // http://localhost:8000//animais/form -- Formulário de Animais
     case "/animais/form":
         AnimaisController::form();
     break;
@@ -55,9 +57,43 @@ switch($parse_uri) {
         AnimaisController::save();
     break;
 
-    // http://localhost:8000//animais -- Listagem de Clientes
+    // http://localhost:8000//animais -- Listagem de Animais
     case "/animais":
         AnimaisController::list();
+    break;
+
+    // CORES
+
+    // http://localhost:8000//cores/form -- Formulário de Cores
+    case "/cores/form":
+        CoresController::form();
+    break;
+
+    // http://localhost:8000//cores/save -- salvar
+    case "/cores/save":
+        CoresController::save();
+    break;
+
+    // http://localhost:8000//cores -- Listagem de Cores
+    case "/cores":
+        CoresController::list();
+    break;
+
+    // SERVIÇOS
+
+    // http://localhost:8000//servicos/form -- Formulário de Serviços
+    case "/servicos/form":
+        ServicoController::form();
+    break;
+
+    // http://localhost:8000//servicos/save -- salvar
+    case "/servicos/save":
+        ServicoController::save();
+    break;
+
+    // http://localhost:8000//servicos -- Listagem de Serviços
+    case "/servicos":
+        ServicoController::list();
     break;
 
     default:
