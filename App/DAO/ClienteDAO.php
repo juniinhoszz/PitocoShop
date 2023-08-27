@@ -73,7 +73,7 @@ class ClienteDAO extends DAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("Api\Model\ClienteModel"); // Retornando um objeto específico PessoaModel
+        return $stmt->fetchObject("App\Model\ClienteModel"); // Retornando um objeto específico PessoaModel
     }
 
     public function delete(int $id)

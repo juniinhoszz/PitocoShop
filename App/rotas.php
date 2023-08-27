@@ -28,6 +28,11 @@ switch($parse_uri) {
         ClienteController::list();
     break;
 
+    // http://localhost:8000//clientes/delete -- Listagem de Clientes
+    case "/clientes/delete":
+        ClienteController::delete();
+    break;
+
     // ESTOQUE
 
     // http://localhost:8000//estoque/form -- Formulário de Produtos

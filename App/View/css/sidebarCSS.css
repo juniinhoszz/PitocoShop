@@ -107,9 +107,14 @@ select {
     overflow-x: hidden;
 }
 
+.listagem {
+    max-height: 84.5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .enviar {
     display: flexbox;
-    
 }
 
 .enviar button[type="submit"] {
@@ -159,12 +164,13 @@ select {
     /* TABELAS */
 /* Estilos para a tabela */
 table {
-    width: 93.5%;
-    position: absolute;
+    width: 100%;
+    position: relative;
     border-collapse: collapse;
     background-color: white;
     border: 2px solid #522E24; /* Borda da tabela */
     color: #884A39;
+    
     
 }
 
@@ -172,7 +178,7 @@ table {
 th {
     background-color: #884A39;
     color: white;
-    font-weight: 100;
+    font-weight: 90;
     padding: 5px;
     text-align: center;
     border: 1px solid #522E24; /* Borda das células do cabeçalho */
@@ -184,10 +190,46 @@ th {
 td {
     padding: 10px;
     text-align: center;
+    font-size: 14.5px;
     border: 1px solid #522E24; /* Borda das células de dados */
+}
+
+
+
+td:hover
+{
+    background-color: #F8DFBA;
 }
 
 /* Estilos para linhas alternadas */
 tr:nth-child(even) {
     background-color: #ECECEC;
+}
+
+.svg-icon{
+    fill:#884A39
+}
+
+.svg-iconedt{
+    fill: #522E24;
+    margin-top: 5px;
+}
+
+.svg-icondel{
+    fill: #522E24;
+    margin-top: 5px;
+}
+
+.svg-iconedt:hover{
+    height: 24px;
+    width: 24px;
+    transition: 0.3s;
+    fill: blue;
+}
+
+.svg-icondel:hover{
+    height: 24px;
+    width: 24px;
+    transition: 0.3s;
+    fill: red;
 }

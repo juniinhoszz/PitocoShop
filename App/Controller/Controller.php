@@ -20,4 +20,10 @@ abstract class Controller
         // Usa uma expressão regular para substituir todos os caracteres não numéricos por uma string vazia
         return preg_replace('/[^0-9]/', '', $texto);
     }
+    protected static function notNumber($texto) {
+        // Use uma expressão regular para remover todos os caracteres não numéricos
+        $textoLimpo = preg_replace('/[^0-9]/', '', $texto);
+    
+        return substr($textoLimpo, 0, 1);
+    }
 }

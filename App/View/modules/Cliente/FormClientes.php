@@ -47,10 +47,8 @@
 
     <div class="content">
         <h1 style="text-align: start;margin-left: 5px;">Clientes Cadastrados</h1>
-        <form action="/clientes/save" method="POST">
 
-            
-
+        <div class="listagem">
             <table>
                 <thead>
                     <tr>
@@ -60,6 +58,17 @@
                         <th>Telefone</th>
                         <th>Sexo</th>
                         <th>Pets</th>
+                        <th>
+                            <svg viewBox="0 0 20 20" width="22" height="22">
+                                <path fill="white" d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"></path>
+                            </svg>
+                        </th>
+                        <th>
+                            <svg viewBox="0 0 20 20" width="22" height="22">
+                                <path fill="white" d="M7.083,8.25H5.917v7h1.167V8.25z M18.75,3h-5.834V1.25c0-0.323-0.262-0.583-0.582-0.583H7.667c-0.322,0-0.583,0.261-0.583,0.583V3H1.25C0.928,3,0.667,3.261,0.667,3.583c0,0.323,0.261,0.583,0.583,0.583h1.167v14c0,0.644,0.522,1.166,1.167,1.166h12.833c0.645,0,1.168-0.522,1.168-1.166v-14h1.166c0.322,0,0.584-0.261,0.584-0.583C19.334,3.261,19.072,3,18.75,3z M8.25,1.833h3.5V3h-3.5V1.833z M16.416,17.584c0,0.322-0.262,0.583-0.582,0.583H4.167c-0.322,0-0.583-0.261-0.583-0.583V4.167h12.833V17.584z M14.084,8.25h-1.168v7h1.168V8.25z M10.583,7.083H9.417v8.167h1.167V7.083z"></path>
+                            </svg>
+                        </th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -68,29 +77,48 @@
                         <?php $telefone = "(" . substr($item['telefone'], 0, 2) . ")" . substr($item['telefone'], 2, 11) ?>
                         <?php $cpf = substr($item['cpf'], 0, 3) . "." . substr($item['cpf'], 3, 3) . "." . substr($item['cpf'], 6, 3) . "-" . substr($item['cpf'], 9, 2) ?>
                         <?php $sexo;
-                         if ($item['sexo'] == 'M') {
+                        if ($item['sexo'] == 'M') {
                             $sexo = "Masculino";
-                        } elseif($item['sexo'] == 'F') {
+                        } elseif ($item['sexo'] == 'F') {
                             $sexo = "Feminino";
-                        } elseif($item['sexo'] == 'O') {
+                        } elseif ($item['sexo'] == 'O') {
                             $sexo = "Não Definido";
                         } ?>
-                        <tr>
+
+                        <!--<?php echo var_dump($idSelecionado) ?>-->
+                        <tr <?php if($idSelecionado == $model->id)
+                            echo 'style="backgroud-color: #522E24;"' 
+                        ?>>
+                        <!-- TENTAR FAZER SELECIONADO NA HORA DE EDITAR -->
                             <td><?= $item['id'] ?></td>
                             <td><?= $item['nome'] ?></td>
                             <td><?= $cpf ?></td>
                             <td><?= $telefone ?></td>
                             <td>
                                 <!--<?php if ($item['sexo'] == 'M') : ?>Masculino<?php else : ?> Fem <?php endif ?>-->
-                                    <?= $sexo ?>
+                                <?= $sexo ?>
                             </td>
                             <td><?= $item['id_animais'] ?></td>
+                            <td>
+                                <a href="/clientes/form?id=<?= $item['id'] ?>">
+                                    <svg class="svg-iconedt" viewBox="0 0 20 20" width="22" height="22">
+                                        <path d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"></path>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td>
+
+                                <a href="/clientes/delete?id=<?= $item['id'] ?>">
+                                    <svg class="svg-icondel" viewBox="0 0 20 20" width="22" height="22">
+                                        <path d="M7.083,8.25H5.917v7h1.167V8.25z M18.75,3h-5.834V1.25c0-0.323-0.262-0.583-0.582-0.583H7.667c-0.322,0-0.583,0.261-0.583,0.583V3H1.25C0.928,3,0.667,3.261,0.667,3.583c0,0.323,0.261,0.583,0.583,0.583h1.167v14c0,0.644,0.522,1.166,1.167,1.166h12.833c0.645,0,1.168-0.522,1.168-1.166v-14h1.166c0.322,0,0.584-0.261,0.584-0.583C19.334,3.261,19.072,3,18.75,3z M8.25,1.833h3.5V3h-3.5V1.833z M16.416,17.584c0,0.322-0.262,0.583-0.582,0.583H4.167c-0.322,0-0.583-0.261-0.583-0.583V4.167h12.833V17.584z M14.084,8.25h-1.168v7h1.168V8.25z M10.583,7.083H9.417v8.167h1.167V7.083z"></path>
+                                    </svg>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
-
-        </form>
+        </div>
     </div>
 
     <div class="cadastro">
@@ -165,8 +193,25 @@
 
             </div>
 
+            <?php $button;
+            if ($model->id == null) {
+                $button = "Cadastrar";
+            } else {
+                $button = "Editar";
+            }
+            ?>
             <div class="enviar">
-                <button type="submit" value="Cadastrar">Cadastrar</button>
+                <?php
+                if ($model->id == null) {
+                    echo '<button type="submit">Cadastrar</button>';
+                } else {
+                    echo '<button type="submit">Editar</button>';
+                }
+                ?>
+                <!--<button type="submit" value="Cadastrar"> Cancelar </button>-->
+                <!-- FAZER BOTÃO DE CANCELAR -->
+
+                
             </div>
 
 

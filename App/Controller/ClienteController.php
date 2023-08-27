@@ -36,6 +36,7 @@ class ClienteController extends Controller
                 $model = new ClienteModel();
                 $modelList = new ClienteModel();
                 $modelList->getAllRows();
+                $idSelecionado = parent::notNumber($_SERVER['REQUEST_URI']);
 
                 if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
                     $model = $model->getById( (int) $_GET['id']); // Typecast e obtendo o model preenchido vindo da DAO.
@@ -71,7 +72,7 @@ class ClienteController extends Controller
 
             $dao->delete( (int) $_GET['id'] ); // Enviando a variável $_GET como inteiro para o método delete
 
-            header("Location: /clientes");
+            header("Location: /clientes/form");
         }catch(Exception $e)
         {
             parent::LogError($e);
