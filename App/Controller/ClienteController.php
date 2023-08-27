@@ -14,14 +14,14 @@ class ClienteController extends Controller
 
             $cliente->id = $_POST['id'];
             $cliente->nome = $_POST['nome'];
-            $cliente->cpf = $_POST['cpf'];
+            $cliente->cpf = parent::NumericCPF($_POST['cpf']);
             $cliente->telefone = $_POST['telefone'];
             $cliente->sexo = $_POST['sexo'];
-            $cliente->id_animais = $_POST['id_animais'];
+            $cliente->id_animais = isset($_POST['id_animais']) ? 0 : 1;
             
-            $cliente->save(); 
+            $cliente->save();
 
-            header("Location: /clientes"); 
+            header("Location: /clientes/form"); 
 
         }catch(Exception $e)
         {
@@ -34,6 +34,8 @@ class ClienteController extends Controller
             try
             {
                 $model = new ClienteModel();
+                $modelList = new ClienteModel();
+                $modelList->getAllRows();
 
                 if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
                     $model = $model->getById( (int) $_GET['id']); // Typecast e obtendo o model preenchido vindo da DAO.
@@ -54,7 +56,6 @@ class ClienteController extends Controller
                 $model = new ClienteModel();
                 $model->getAllRows();
 
-                
                 include 'View/modules/Cliente/ListClientes.php';
             }catch(Exception $e)
             {

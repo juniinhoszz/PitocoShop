@@ -25,17 +25,20 @@ class ClienteDAO extends DAO
         $stmt->bindValue(4, $model->sexo);
         $stmt->bindValue(5, $model->id_animais);
 
-        $stmt->execute();      
+        $stmt->execute();
     }
 
     public function select()
     {
-        $sql = "SELECT c.*,
-                a.nome as nome_animais
+        $sql = //"SELECT c.*,
+                //a.nome as nome_animais
+                //from clientes c
+                //join animais a on a.id = c.id_animais
+                //order by c.id
+                //";
+                "SELECT c.*
                 from clientes c
-                join animais a on a.id = c.id_animais
-                order by c.id
-                ";
+                order by c.id";
 
 
         $stmt = $this->conexao->prepare($sql);

@@ -86,6 +86,7 @@ label {
 }
 
 input[type="text"],
+input[type="tel"],
 select {
     width: 91.5%;
     padding: 10px;
@@ -100,10 +101,6 @@ select {
     width: 100%;
 }
 
-.sidebar i {
-    margin-right: 10px;
-}
-
 .inputs {
     max-height: 460px;
     overflow-y: auto;
@@ -112,15 +109,19 @@ select {
 
 .enviar {
     display: flexbox;
+    
 }
 
 .enviar button[type="submit"] {
     margin: 5px;
+    font-family: 'Boulder', sans-serif;
+    text-align: center;
+    line-height: 20px;
     position: absolute;
     bottom: 8%;
     width: 80%;
     height: 7.2%;
-    font-size: 20px;
+    font-size: 22px;
     left: 50%; /* Centraliza o botão horizontalmente */
     transform: translateX(-50%);
     text-align: center;
@@ -137,4 +138,56 @@ select {
     background-color: #884A39;
     color: white;
     transition: 0.5s;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+@font-face {
+    font-family: 'Boulder'; /* Nome da fonte */
+    src: url('/View/Assets/BoulderFont/BoulderRegular.ttf') format('truetype'); /* Caminho para o arquivo da fonte */
+    /* Outros formatos de fonte podem ser especificados aqui, dependendo do que você baixou */
+    font-weight: normal; /* Peso da fonte (normal, bold, etc.) */
+    font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+}
+
+    /* TABELAS */
+/* Estilos para a tabela */
+table {
+    width: 93.5%;
+    position: absolute;
+    border-collapse: collapse;
+    background-color: white;
+    border: 2px solid #522E24; /* Borda da tabela */
+    color: #884A39;
+    
+}
+
+/* Estilos para as células do cabeçalho */
+th {
+    background-color: #884A39;
+    color: white;
+    font-weight: 100;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #522E24; /* Borda das células do cabeçalho */
+    font-family: 'Boulder', sans-serif;
+    
+}
+
+/* Estilos para as células de dados */
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #522E24; /* Borda das células de dados */
+}
+
+/* Estilos para linhas alternadas */
+tr:nth-child(even) {
+    background-color: #ECECEC;
 }

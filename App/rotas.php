@@ -19,7 +19,7 @@ switch($parse_uri) {
     break;
 
     // http://localhost:8000//clientes/save -- salvar
-    case "/clientes/form":
+    case "/clientes/save":
         ClienteController::save();
     break;
 
