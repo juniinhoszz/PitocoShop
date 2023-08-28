@@ -1,6 +1,4 @@
---INSERT das raças de cachorro
-
-INSERT INTO racas_cachorros (nome_raca) VALUES
+INSERT INTO raca_animal (descricao) VALUES
 ('Vira Lata (SRD)'),
 ('Affenpinscher'),
 ('Afghan Hound'),
@@ -195,15 +193,7 @@ INSERT INTO racas_cachorros (nome_raca) VALUES
 ('Maltês'),
 ('Manchester Terrier'),
 ('Mastife'),
-('Mastim');
-
-
-
-
---INSERT para raças de gatos
-
-
-INSERT INTO racas_gatos (nome_raca) VALUES
+('Mastim'),
 ('Sem Raça Definida (Vira Lata)'),
 ('Abissínio'),
 ('American Bobtail'),
@@ -266,12 +256,7 @@ INSERT INTO racas_gatos (nome_raca) VALUES
 ('Tonquinês'),
 ('Turco do Lago de Van'),
 ('Van Turco'),
-('York Chocolate');
-
-
---INSERT de raças de passáros
-
-INSERT INTO racas_aves (nome_raca) VALUES
+('York Chocolate'),
 ('Agapórnis'),
 ('Arara Vermelha de Asa Verde'),
 ('Azulão'),
@@ -317,12 +302,7 @@ INSERT INTO racas_aves (nome_raca) VALUES
 ('Tico-Tico'),
 ('Trinca Ferro'),
 ('Tucano'),
-('Tuim');
-
-
---INSERT de raças de roedores
-
-INSERT INTO racas_pequenos_animais (nome_raca) VALUES
+('Tuim'),
 ('Cão da Pradaria'),
 ('Chinchila'),
 ('Coelho'),
@@ -356,12 +336,7 @@ INSERT INTO racas_pequenos_animais (nome_raca) VALUES
 ('Gerbo'),
 ('Hamster'),
 ('Porquinho da Índia'),
-('Twister');
-
-
---INSERT de raças de réptil
-
-INSERT INTO racas_repteis_anfibios (nome_raca) VALUES
+('Twister'),
 ('Agama'),
 ('Anolis Verde'),
 ('Axolotl'),
@@ -384,14 +359,10 @@ INSERT INTO racas_repteis_anfibios (nome_raca) VALUES
 ('Salamandra-de-fogo'),
 ('Suaçuboia'),
 ('Tartaruga'),
-('Tartarugas tigres D'água'),
+('Tartarugas tigres D"água'),
 ('Teiú'),
 ('Teju'),
-('Tritão Ventre de Fogo');
-
---INSERT de raças de peixes
-
-INSERT INTO racas_peixes (nome_raca) VALUES
+('Tritão Ventre de Fogo'),
 ('Abelhinha'),
 ('Acará Bandeira'),
 ('Acará Disco'),
