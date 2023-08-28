@@ -46,7 +46,7 @@
     </div>
 
     <div class="content">
-        <h1 style="text-align: start;margin-left: 5px;">Clientes Cadastrados</h1>
+        <h1 style="text-align: start;margin-left: 5px; margin-bottom: 5px;">Clientes Cadastrados</h1>
 
         <div class="listagem">
             <table>
@@ -73,6 +73,7 @@
                 </thead>
                 <tbody>
 
+
                     <?php foreach ($modelList->rows as $item) : ?>
                         <?php $telefone = "(" . substr($item['telefone'], 0, 2) . ")" . substr($item['telefone'], 2, 11) ?>
                         <?php $cpf = substr($item['cpf'], 0, 3) . "." . substr($item['cpf'], 3, 3) . "." . substr($item['cpf'], 6, 3) . "-" . substr($item['cpf'], 9, 2) ?>
@@ -85,11 +86,12 @@
                             $sexo = "Não Definido";
                         } ?>
 
+                        <!-- $_SERVER['REQUEST_URI'] -->
                         <!--<?php echo var_dump($idSelecionado) ?>-->
-                        <tr <?php if($idSelecionado == $model->id)
-                            echo 'style="backgroud-color: #522E24;"' 
-                        ?>>
-                        <!-- TENTAR FAZER SELECIONADO NA HORA DE EDITAR -->
+                        <tr <?php if ($idSelecionado == $model->id)
+                                echo 'style="backgroud-color: #522E24;"'
+                            ?>>
+                            <!-- TENTAR FAZER SELECIONADO NA HORA DE EDITAR -->
                             <td><?= $item['id'] ?></td>
                             <td><?= $item['nome'] ?></td>
                             <td><?= $cpf ?></td>
@@ -211,7 +213,7 @@
                 <!--<button type="submit" value="Cadastrar"> Cancelar </button>-->
                 <!-- FAZER BOTÃO DE CANCELAR -->
 
-                
+
             </div>
 
 
