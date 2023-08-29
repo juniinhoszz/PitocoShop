@@ -17,7 +17,7 @@ class ClienteController extends Controller
             $cliente->cpf = parent::NumericCPF($_POST['cpf']);
             $cliente->telefone = $_POST['telefone'];
             $cliente->sexo = $_POST['sexo'];
-            $cliente->id_animais = isset($_POST['id_animais']) ? 0 : 1;
+            //$cliente->id_animais = isset($_POST['id_animais']) ? 0 : 1;
             
             $cliente->save();
 

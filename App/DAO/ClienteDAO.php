@@ -14,8 +14,8 @@ class ClienteDAO extends DAO
     function insert(ClienteModel $model) 
     {
         $sql = "INSERT INTO clientes
-                (nome, cpf, telefone, sexo, id_animais) 
-                VALUES (?, ?, ?, ?, ?)";
+                (nome, cpf, telefone, sexo) 
+                VALUES (?, ?, ?, ?)";
         
         $stmt = $this->conexao->prepare($sql);
 
@@ -23,7 +23,7 @@ class ClienteDAO extends DAO
         $stmt->bindValue(2, $model->cpf);
         $stmt->bindValue(3, $model->telefone);
         $stmt->bindValue(4, $model->sexo);
-        $stmt->bindValue(5, $model->id_animais);
+        //$stmt->bindValue(5, $model->id_animais);
 
         $stmt->execute();
     }
@@ -50,7 +50,7 @@ class ClienteDAO extends DAO
     function update(ClienteModel $model) 
     {
         $sql = "UPDATE clientes SET nome=?, cpf=?, 
-                telefone=?, sexo=?, id_animais=?
+                telefone=?, sexo=?
                 WHERE id=?";
         
         $stmt = $this->conexao->prepare($sql);
@@ -59,8 +59,8 @@ class ClienteDAO extends DAO
         $stmt->bindValue(2, $model->cpf);
         $stmt->bindValue(3, $model->telefone);
         $stmt->bindValue(4, $model->sexo);
-        $stmt->bindValue(5, $model->id_animais);
-        $stmt->bindValue(6, $model->id);
+        //$stmt->bindValue(5, $model->id_animais);
+        $stmt->bindValue(5, $model->id);
 
         $stmt->execute();      
     }

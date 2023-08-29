@@ -1,0 +1,6 @@
+#0 C:\Users\Usuario\Desktop\PitocoShop\App\DAO\ClienteDAO.php(28): PDOStatement->execute()
+#1 C:\Users\Usuario\Desktop\PitocoShop\App\Model\ClienteModel.php(14): App\DAO\ClienteDAO->insert(Object(App\Model\ClienteModel))
+#2 C:\Users\Usuario\Desktop\PitocoShop\App\Controller\ClienteController.php(22): App\Model\ClienteModel->save()
+#3 C:\Users\Usuario\Desktop\PitocoShop\App\rotas.php(23): App\Controller\ClienteController::save()
+#4 C:\Users\Usuario\Desktop\PitocoShop\App\index.php(6): include('C:\\Users\\Usuari...')
+#5 {main}
