@@ -22,7 +22,8 @@ body {
     color: #884A39;
     display: block;
     transition: 0.3s;
-    text-align: center; /* Centralize o texto horizontalmente */
+    text-align: center;
+    /* Centralize o texto horizontalmente */
 }
 
 .sidebar a:hover {
@@ -30,6 +31,7 @@ body {
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
+    scale: 1.10;
 }
 
 .content {
@@ -94,7 +96,16 @@ select {
     border: 2px solid #884A39;
     border-radius: 3px;
     color: #884A39;
+    font-size: 15px;
+    text-decoration-color: #522E24;
 }
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+select::placeholder {
+    color: #522E24;
+}
+
 
 select {
     height: 40px;
@@ -123,11 +134,12 @@ select {
     text-align: center;
     line-height: 20px;
     position: absolute;
-    bottom: 8%;
+    bottom: 9%;
     width: 80%;
     height: 7.2%;
     font-size: 22px;
-    left: 50%; /* Centraliza o botão horizontalmente */
+    left: 50%;
+    /* Centraliza o botão horizontalmente */
     transform: translateX(-50%);
     text-align: center;
     border-radius: 50px;
@@ -142,6 +154,8 @@ select {
 .enviar button[type="submit"]:hover {
     background-color: #884A39;
     color: white;
+    height: 9%;
+    width: 82%;
     transition: 0.5s;
 }
 
@@ -154,24 +168,30 @@ select {
 }
 
 @font-face {
-    font-family: 'Boulder'; /* Nome da fonte */
-    src: url('/View/Assets/BoulderFont/BoulderRegular.ttf') format('truetype'); /* Caminho para o arquivo da fonte */
+    font-family: 'Boulder';
+    /* Nome da fonte */
+    src: url('/View/Assets/BoulderFont/BoulderRegular.ttf') format('truetype');
+    /* Caminho para o arquivo da fonte */
     /* Outros formatos de fonte podem ser especificados aqui, dependendo do que você baixou */
-    font-weight: normal; /* Peso da fonte (normal, bold, etc.) */
-    font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+    font-weight: normal;
+    /* Peso da fonte (normal, bold, etc.) */
+    font-style: normal;
+    /* Estilo da fonte (normal, italic, etc.) */
 }
 
-    /* TABELAS */
+/* TABELAS */
 /* Estilos para a tabela */
 table {
     width: 100%;
     position: relative;
     border-collapse: collapse;
     background-color: white;
-    border: 2px solid #522E24; /* Borda da tabela */
+    border: 2px solid #522E24;
+    border-top:2px solid #F8DFBA;
+    /* Borda da tabela */
     color: #884A39;
-    
-    
+
+
 }
 
 /* Estilos para as células do cabeçalho */
@@ -181,9 +201,10 @@ th {
     font-weight: 90;
     padding: 5px;
     text-align: center;
-    border: 1px solid #522E24; /* Borda das células do cabeçalho */
+    border: 1px solid #522E24;
+    /* Borda das células do cabeçalho */
     font-family: 'Boulder', sans-serif;
-    
+
 }
 
 /* Estilos para as células de dados */
@@ -191,13 +212,13 @@ td {
     padding: 10px;
     text-align: center;
     font-size: 14.5px;
-    border: 1px solid #522E24; /* Borda das células de dados */
+    border: 1px solid #522E24;
+    /* Borda das células de dados */
 }
 
 
 
-td:hover
-{
+td:hover {
     background-color: #F8DFBA;
 }
 
@@ -206,30 +227,134 @@ tr:nth-child(even) {
     background-color: #ECECEC;
 }
 
-.svg-icon{
-    fill:#884A39
+
+
+.svg-icon {
+    fill: #884A39
 }
 
-.svg-iconedt{
+.svg-iconedt {
     fill: #522E24;
     margin-top: 5px;
 }
 
-.svg-icondel{
+.svg-icondel {
     fill: #522E24;
     margin-top: 5px;
 }
 
-.svg-iconedt:hover{
-    height: 24px;
-    width: 24px;
+.svg-iconedt:hover {
+    scale: 1.5;
     transition: 0.3s;
     fill: blue;
 }
 
-.svg-icondel:hover{
-    height: 24px;
-    width: 24px;
+.svg-icondel:hover {
+    scale: 1.5;
     transition: 0.3s;
     fill: red;
 }
+
+/* NAVBAR */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilize o cabeçalho (navbar) */
+header {
+    background-color: #884A39;
+    color: #fff;
+    padding: 10px 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* Estilize a lista não ordenada e seus itens de lista */
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+/* Estilize os links */
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    /* Efeito de transição suave para a cor do texto */
+}
+
+/* Estilize os links quando o mouse passa por cima */
+nav a:hover {
+    color: #ff6600;
+    /* Cor de destaque quando o mouse passa por cima */
+}
+
+.opcoes {
+    height: 45px;
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.opcoes button {
+    height: 100%;
+    color: #522E24;
+    width: 25%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-color: transparent;
+    font-family: 'Boulder', sans-serif;
+    text-align: center;
+    line-height: 20px;
+    font-size: 22px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.opcoes button:hover {
+    background-color: #F8DFBA;
+    cursor: pointer;
+    overflow: hidden;
+    scale: 1.05;
+    transition: 0.3s;
+    border-color: #F8DFBA;
+    
+    
+}
+
+.scrollCadastros {
+    display: flex;
+    height: 45px;
+    width: 700px;
+}
+
+.scrollCadastros button{
+    color: #522E24;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-color: transparent;
+    font-family: 'Boulder', sans-serif;
+    text-align: center;
+    line-height: 20px;
+    font-size: 22px;
+}
+
+.scrollCadastros button:hover{
+    background-color: #F8DFBA;
+    cursor: pointer;
+    transition: 0.3s;
+    border-color: #F8DFBA;
+}
+
