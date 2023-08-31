@@ -29,8 +29,8 @@ body {
 .sidebar a:hover {
     background-color: #FF7F5C;
     border-radius: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 7%;
+    margin-right: 7%;
     scale: 1.10;
 }
 
@@ -87,7 +87,7 @@ label {
     color: #884A39;
 }
 
-input[type="text"],
+.cadastro input[type="text"],
 input[type="tel"],
 select {
     width: 91.5%;
@@ -228,7 +228,6 @@ tr:nth-child(even) {
 }
 
 
-
 .svg-icon {
     fill: #884A39
 }
@@ -255,53 +254,10 @@ tr:nth-child(even) {
     fill: red;
 }
 
-/* NAVBAR */
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilize o cabeçalho (navbar) */
-header {
-    background-color: #884A39;
-    color: #fff;
-    padding: 10px 0;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-}
-
-/* Estilize a lista não ordenada e seus itens de lista */
-nav ul {
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    display: inline;
-    margin: 0 20px;
-}
-
-/* Estilize os links */
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-    transition: color 0.3s ease;
-    /* Efeito de transição suave para a cor do texto */
-}
-
-/* Estilize os links quando o mouse passa por cima */
-nav a:hover {
-    color: #ff6600;
-    /* Cor de destaque quando o mouse passa por cima */
-}
-
+/* NAVBAR DE CADASTROS */
 .opcoes {
     height: 45px;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
     position: relative;
     white-space: nowrap;
@@ -337,7 +293,7 @@ nav a:hover {
 .scrollCadastros {
     display: flex;
     height: 45px;
-    width: 700px;
+    width: 100%;
 }
 
 .scrollCadastros button{
@@ -356,5 +312,26 @@ nav a:hover {
     cursor: pointer;
     transition: 0.3s;
     border-color: #F8DFBA;
+}
+
+.search::placeholder {
+    font-size: 20px;
+}
+
+
+
+.search{
+    width: 75%; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #884A39;
+    border-radius: 3px;
+    color: #884A39;
+    font-size: 15px;
+    text-decoration-color: #522E24;
+    color: #884A39;
+    margin-top: 7px; 
+    border-radius: 100px;
+    font-family: 'Boulder', sans-serif;
 }
 
