@@ -14,15 +14,14 @@ class AnimaisController extends Controller
 
             $animais->id = $_POST['id'];
             $animais->nome = $_POST['nome'];
-            $animais->id_dono = $_POST['id_dono'];
-            $animais->id_especie = $_POST['id_especie'];
             $animais->sexo = $_POST['sexo'];
-            $animais->id_raca = $_POST['id_raca'];
-            $animais->id_cor = $_POST['id_cor'];
+            $animais->idade = $_POST['idade'];
             $animais->porte = $_POST['porte'];
             $animais->peso = $_POST['peso'];
             $animais->castrado = $_POST['castrado'];
-            $animais->idade = $_POST['idade'];
+            $animais->id_dono = $_POST['id_dono'];
+            $animais->id_especie = $_POST['id_especie'];
+            $animais->id_cor = $_POST['id_cor'];
 
             $animais->save(); 
 

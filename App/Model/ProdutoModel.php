@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Model;
-use App\DAO\EstoqueDAO;
+use App\DAO\ProdutoDAO;
 
-class EstoqueModel extends Model
+class ProdutoModel extends Model
 {
-    public $id, $produto, $id_categoria, $preco, $quantidade, $codigo;
+    public $id, $descricao, $preco, $quantidade, $codigo, $id_categoria;
 
     public function save()
     {
-        $dao = new EstoqueDAO();
+        $dao = new ProdutoDAO();
         if(empty($this->id))
         {$dao->insert($this);} 
         else {$dao->update($this);}
@@ -17,22 +17,22 @@ class EstoqueModel extends Model
 
     public function getAllRows()
     {
-        $dao = new EstoqueDAO();
+        $dao = new ProdutoDAO();
 
         $this->rows = $dao->select();
     }
 
     public function getById(int $id)
     {
-        $dao = new EstoqueDAO();
+        $dao = new ProdutoDAO();
         $obj = $dao->selectById($id); // Obtendo um model preenchido da camada DAO
 
-        return ($obj) ? $obj : new EstoqueModel(); // Operador Ternário
+        return ($obj) ? $obj : new ProdutoModel(); // Operador Ternário
     }
 
     public function delete(int $id)
     {
-        $dao = new EstoqueDAO();
+        $dao = new ProdutoDAO();
         $dao->delete($id);
     }
 }

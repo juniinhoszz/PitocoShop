@@ -2,26 +2,26 @@
 
 namespace App\Controller;
 use Exception,
-    App\Model\ServicoModel,
-    App\DAO\ServicoDAO;;
+    App\Model\ProdutoModel,
+    App\DAO\ProdutoDAO;;
 
-class ServicoController extends Controller 
+class ProdutoController extends Controller 
 {
     public static function save(){
         try
         {
-            $servico = new ServicoModel();
+            $estoque = new ProdutoModel();
 
-            $servico->id = $_POST['id'];
-            $servico->id_descricao_servico = $_POST['id_descricao_servico'];
-            $servico->id_preco_servico = $_POST['id_preco_servico'];
-            $servico->horario_entrega = $_POST['horario_entrega'];
-            $servico->horario_busca = $_POST['horario_busca'];
-            $servico->id_cliente = $_POST['id_cliente'];
+            $estoque->id = $_POST['id'];
+            $estoque->descricao = $_POST['descricao'];
+            $estoque->preco = $_POST['preco'];
+            $estoque->quantidade = $_POST['quantidade'];
+            $estoque->codigo = $_POST['codigo'];
+            $estoque->id_categoria = $_POST['id_categoria'];
             
-            $servico->save(); 
+            $estoque->save(); 
 
-            header("Location: /servicos"); 
+            header("Location: /produto"); 
         }catch(Exception $e)
         {
             parent::LogError($e);
@@ -32,14 +32,14 @@ class ServicoController extends Controller
         {
             try
             {
-                $model = new ServicoModel();
+                $model = new ProdutoModel();
 
                 if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
                     $model = $model->getById( (int) $_GET['id']); // Typecast e obtendo o model preenchido vindo da DAO.
                 
                 //$model->getAllRowsFabr(); - uxar dados para dropdown
                 
-                include 'View/modules/Servicos/FormServicos.php';
+                include 'View/modules/Produto/FormProdutos.php';
             }catch(Exception $e)
             {
                 parent::LogError($e);
@@ -50,11 +50,11 @@ class ServicoController extends Controller
     {
         try
         {
-            $model = new ServicoModel();
+            $model = new ProdutoModel();
             $model->getAllRows();
 
             
-            include 'View/modules/Servicos/ListServicos.php';
+            include 'View/modules/Produto/ListProdutos.php';
         }catch(Exception $e)
         {
             parent::LogError($e);
@@ -65,11 +65,11 @@ class ServicoController extends Controller
     {
         try
         {
-            $dao = new ServicoDAO();
+            $dao = new ProdutoDAO();
 
             $dao->delete( (int) $_GET['id'] ); // Enviando a variável $_GET como inteiro para o método delete
 
-            header("Location: /servicos");
+            header("Location: /produto");
         }catch(Exception $e)
         {
             parent::LogError($e);
