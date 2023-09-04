@@ -3,8 +3,7 @@ use App\Controller\{
     ClienteController,
     AnimaisController,
     CoresController,
-    EstoqueController,
-    ServicoController
+    ProdutoController
 };
 
 $parse_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -36,18 +35,18 @@ switch($parse_uri) {
     // ESTOQUE
 
     // http://localhost:8000//estoque/form -- Formulário de Produtos
-    case "/estoque/form":
-        EstoqueController::form();
+    case "/produtos/form":
+        ProdutoController::form();
     break;
 
     // http://localhost:8000//estoque/save -- salvar
-    case "/estoque/save":
-        EstoqueController::save();
+    case "/produtos/save":
+        ProdutoController::save();
     break;
 
     // http://localhost:8000//estoque -- Listagem de Produtos
-    case "/estoque":
-        EstoqueController::list();
+    case "/produtos":
+        ProdutoController::list();
     break;
 
     // ANIMAIS
@@ -84,24 +83,8 @@ switch($parse_uri) {
         CoresController::list();
     break;
 
-    // SERVIÇOS
-
-    // http://localhost:8000//servicos/form -- Formulário de Serviços
-    case "/servicos/form":
-        ServicoController::form();
-    break;
-
-    // http://localhost:8000//servicos/save -- salvar
-    case "/servicos/save":
-        ServicoController::save();
-    break;
-
-    // http://localhost:8000//servicos -- Listagem de Serviços
-    case "/servicos":
-        ServicoController::list();
-    break;
-
+    
     default:
-    //header("Location: /");
+        header("Location: /clientes/form");
 break;
 }
