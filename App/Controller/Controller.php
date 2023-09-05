@@ -15,7 +15,7 @@ abstract class Controller
         fwrite($f, $e->getTraceAsString());
     }
 
-    protected static function NumericCPF($texto)
+    protected static function TirarnaoNumeros($texto)
     {
         // Usa uma expressão regular para substituir todos os caracteres não numéricos por uma string vazia
         return preg_replace('/[^0-9]/', '', $texto);

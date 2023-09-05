@@ -46,14 +46,15 @@
         <div style="display: flex; align-items: center; justify-content: flex-start;">
             <h1 style="text-align: start;margin-left: 5px; margin-bottom: 5px;">Cadastros</h1>
 
-            <input class="search" type="text" for="Search"
-             id="Search" maxlength="45" name="Search" placeholder="Pesquise Aqui">
+            <input class="search" type="text" for="Search" maxlength="45" id="searchInput" 
+            onkeyup="filterTable()"
+            name="Search" placeholder="Pesquise Aqui">
 
-             <button style="border-radius: 500px;">
-             <svg class="svg-icon" style="height: 40px;" viewBox="0 0 20 20">
-							<path fill="black" d="M12.323,2.398c-0.741-0.312-1.523-0.472-2.319-0.472c-2.394,0-4.544,1.423-5.476,3.625C3.907,7.013,3.896,8.629,4.49,10.102c0.528,1.304,1.494,2.333,2.72,2.99L5.467,17.33c-0.113,0.273,0.018,0.59,0.292,0.703c0.068,0.027,0.137,0.041,0.206,0.041c0.211,0,0.412-0.127,0.498-0.334l1.74-4.23c0.583,0.186,1.18,0.309,1.795,0.309c2.394,0,4.544-1.424,5.478-3.629C16.755,7.173,15.342,3.68,12.323,2.398z M14.488,9.77c-0.769,1.807-2.529,2.975-4.49,2.975c-0.651,0-1.291-0.131-1.897-0.387c-0.002-0.004-0.002-0.004-0.002-0.004c-0.003,0-0.003,0-0.003,0s0,0,0,0c-1.195-0.508-2.121-1.452-2.607-2.656c-0.489-1.205-0.477-2.53,0.03-3.727c0.764-1.805,2.525-2.969,4.487-2.969c0.651,0,1.292,0.129,1.898,0.386C14.374,4.438,15.533,7.3,14.488,9.77z"></path>
-						</svg>
-                        </button>
+            <!--<button style="border-radius: 500px;">
+                <svg class="svg-icon" style="height: 40px;" viewBox="0 0 20 20">
+                    <path fill="black" d="M12.323,2.398c-0.741-0.312-1.523-0.472-2.319-0.472c-2.394,0-4.544,1.423-5.476,3.625C3.907,7.013,3.896,8.629,4.49,10.102c0.528,1.304,1.494,2.333,2.72,2.99L5.467,17.33c-0.113,0.273,0.018,0.59,0.292,0.703c0.068,0.027,0.137,0.041,0.206,0.041c0.211,0,0.412-0.127,0.498-0.334l1.74-4.23c0.583,0.186,1.18,0.309,1.795,0.309c2.394,0,4.544-1.424,5.478-3.629C16.755,7.173,15.342,3.68,12.323,2.398z M14.488,9.77c-0.769,1.807-2.529,2.975-4.49,2.975c-0.651,0-1.291-0.131-1.897-0.387c-0.002-0.004-0.002-0.004-0.002-0.004c-0.003,0-0.003,0-0.003,0s0,0,0,0c-1.195-0.508-2.121-1.452-2.607-2.656c-0.489-1.205-0.477-2.53,0.03-3.727c0.764-1.805,2.525-2.969,4.487-2.969c0.651,0,1.292,0.129,1.898,0.386C14.374,4.438,15.533,7.3,14.488,9.77z"></path>
+                </svg>
+            </button>-->
 
         </div>
 
@@ -97,7 +98,7 @@
 -->
 
         <div class="listagem">
-            <table>
+            <table id="ListagemClientes">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -164,6 +165,31 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
+            <script>
+                // Função para atualizar a tabela com base na pesquisa
+                function filterTable() {
+                    var input, filter, table, tr, td, i, j, txtValue;
+                    input = document.getElementById('searchInput');
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById('ListagemClientes');
+                    tr = table.getElementsByTagName('tr');
+
+                    for (i = 1; i < tr.length; i++) {
+                        tr[i].style.display = 'none'; // Oculta todas as linhas
+                        td = tr[i].getElementsByTagName('td');
+                        for (j = 0; j < td.length; j++) {
+                            txtValue = td[j].textContent || td[j].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = ''; // Exibe a linha se a pesquisa for correspondida
+                                break; // Sai do loop interno
+                            }
+                        }
+                    }
+                }
+
+                // Adicione um ouvinte de eventos para a caixa de pesquisa
+                //document.getElementById('searchInput').addEventListener('keyup', filterTable);
+            </script>
         </div>
     </div>
 
@@ -183,13 +209,12 @@
                 <input type="text" for="nome" value="<?= $model->nome ?>" id="nome" maxlength="45" name="nome" required>
 
                 <label for="cpf">CPF:</label>
-                <input type="text" for="cpf" value="<?= $model->cpf ?>" id="cpf" maxlength="14" minlength="14" name="cpf" required>
+                <input type="text" for="cpf" value="<?= $model->cpf ?>" oninput="formatarCPF()" id="cpf" maxlength="14" minlength="14" name="cpf" required>
                 <script>
                     // Função para aplicar a máscara de CPF em tempo real
                     function formatarCPF() {
                         const cpfInput = document.getElementById('cpf');
                         let cpf = cpfInput.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
-
                         if (cpf.length > 3) {
                             cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
                         }
@@ -199,17 +224,25 @@
                         if (cpf.length > 11) {
                             cpf = cpf.substring(0, 11) + '-' + cpf.substring(11);
                         }
-
                         cpfInput.value = cpf;
                     }
-
-                    // Adiciona o evento de input para chamar a função formatarCPF
-                    const cpfInput = document.getElementById('cpf');
-                    cpfInput.addEventListener('input', formatarCPF);
                 </script>
 
                 <label for="telefone">Telefone:</label>
-                <input type="tel" for="tel" value="<?= $model->telefone ?>" maxlength="11" minlength="11" id="telefone" name="telefone" required>
+                <input type="tel" for="tel" value="<?= $model->telefone ?>" oninput="formatarTel()" maxlength="13" minlength="11" id="telefone" name="telefone" required>
+                <script>
+                    function formatarTel() {
+                        const TelInput = document.getElementById('telefone');
+                        let tel = TelInput.value.replace(/\D/g, '');
+                        if (tel.length > 0 )
+                        {
+                            tel = '('+ tel.substring(0,2) + ')' + tel.substring(2,11)
+                        }
+                        TelInput.value = tel;
+                    }
+                </script>
+
+
 
                 <label for="sexo">Sexo:</label>
                 <select id="sexo" name="sexo" required>

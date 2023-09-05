@@ -318,16 +318,15 @@ tr:nth-child(even) {
     font-size: 20px;
 }
 
-
-
 .search{
     width: 75%; 
     padding: 10px;
+    padding-left: 12px;
     margin-bottom: 10px;
     border: 2px solid #884A39;
     border-radius: 3px;
     color: #884A39;
-    font-size: 15px;
+    font-size: 20px;
     text-decoration-color: #522E24;
     color: #884A39;
     margin-top: 7px; 
